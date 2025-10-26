@@ -3,6 +3,7 @@ import numpy as np
 # Nathaphoom Create Function Gauss-Seidel Method with Auto Pivoting 
 # Phongthorn Create Function Show steps
 
+#! Start Nathapoom AI
 def gauss_seidel(A, b, tol=1e-6, max_iter=100):
     A = A.astype(float)
     b = b.astype(float)
@@ -18,6 +19,9 @@ def gauss_seidel(A, b, tol=1e-6, max_iter=100):
         for i in range(n):
             # Show steps
             x_number = 0
+            #! End Nathapoom AI
+
+            #! Start Phongsathorn
             move_to_divide = 0
             print("x{} = ( {}".format(i+1, b[i]), end=" ") # x1 = (b
             for j in range(n):
@@ -28,17 +32,24 @@ def gauss_seidel(A, b, tol=1e-6, max_iter=100):
                 else: move_to_divide = A[i][j]
                 x_number+=1
             print(f")/{move_to_divide}", end=" ")
+            #! End Phongsathorn
 
+            #! Start Nathapoom AI
             sum_ = np.dot(A[i, :i], x[:i]) + np.dot(A[i, i+1:], x[i+1:])
             x[i] = (b[i] - sum_) / A[i, i]
-            print(f"= {x[i]:.4f}")
+            #! End Nathapoom AI
 
+            #! Start Phongsathorn
+            print(f"= {x[i]:.4f}")
+            #! End Phongsathorn
+
+        #! Start Nathapoom AI
         econ = abs((x[2]-x_old[2])/x[2])
         print(f"Econ = {econ:.5f} {'>' if econ>tol else '<'} {tol}\n")
         if econ < tol:
             print(f"\nสิ้นสุดการคำนวณหลัง {k} ครั้ง (ถึงค่าความคลาดเคลื่อนที่กำหนด)\n")
             break
-
+        
     print("\nคำตอบประมาณคือ:")
     for i in range(n):
         print(f"x[{i+1}] = {x[i]:.4f}")
@@ -60,8 +71,9 @@ for i in range(n):
 
 print("\nกรุณาป้อนค่าของเวกเตอร์ b (คั่นด้วยช่องว่าง):")
 b = np.array(list(map(float, input().split())))
+#! End Nathapoom AI
 
-# By Phongsathorn
+#! Start Phongsathorn
 import os
 os.system('cls' if os.name == 'nt' else 'clear')
 print("ตารางเมทริกซ์")
@@ -96,10 +108,13 @@ for i in range(n):
         else: move_to_divide = A[i][j]
         x_number+=1
     print(f")/{move_to_divide}")
-# End
+#! End Phongsathorn
+
+#! Start Nathapoom AI
 print("\nขั้นตอนที 2 การกำหนดค่าเริ่มต้นและเกณฑ์ค่าความคลาดเคลื่อน")
 tol = float(input("\nกรุณาป้อนค่าความคลาดเคลื่อน (ε): "))
 
 # เรียกใช้ฟังก์ชัน
 print("\nขั้นตอนที 3 การคำนวณทำซ้ำตรวจสอบความคลาดเคลื่อน")
 gauss_seidel(A, b, tol=tol)
+#! End Nathapoom AI
